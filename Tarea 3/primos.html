@@ -10,28 +10,27 @@
 
 <script>
 function calcular() {
-    let numero = document.getElementById("numero").value;
+    let numero = parseInt(document.getElementById("numero").value);
     let resultado = "";
 
     for (let i = 1; i <= numero; i++) {
         let primo = true;
 
-        if (i < 2) {
-            primo = false;
-        }
-
-        for (let j = 2; j < i; j++) {
-            if (i % j == 0) {
-                primo = false;
+        if (i == 1) {
+            primo = true;         
+        } else {
+            for (let j = 2; j < i; j++) {
+                if (i % j == 0) {
+                    primo = false;   
+                }
             }
         }
 
-        if (primo == true) {
+        if (primo) {
             resultado = resultado + "<td>" + i + "</td>";
         }
     }
 
-    document.body.innerHTML += "";
     document.getElementById("tabla").innerHTML = resultado;
 }
 </script>
